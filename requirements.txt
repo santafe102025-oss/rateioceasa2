@@ -1,13 +1,4 @@
-<<<<<<< HEAD
-Flask==3.0.3
+flask==3.0.0
 gunicorn==22.0.0
 python-dotenv==1.0.1
-supabase==2.6.0
-Werkzeug==3.0.3
-=======
-flask
-python-dotenv
-supabase
-werkzeug
-gunicorn
->>>>>>> 76d5f6d (primeiro commit)
+supabase==2.4.0
