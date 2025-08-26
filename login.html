@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+  <h3>Login</h3>
+  <form method="post">
+    <div class="mb-3">
+      <label class="form-label">CNPJ (somente números) ou E-mail</label>
+      <input name="usuario" class="form-control" required>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Senha</label>
+      <input name="senha" type="password" class="form-control" required>
+    </div>
+    <button class="btn btn-primary">Entrar</button>
+  </form>
+{% endblock %}

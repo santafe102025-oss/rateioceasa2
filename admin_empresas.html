@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+  <h3>Empresas</h3>
+
+  <form class="row row-cols-lg-auto g-3 align-items-center mb-3" method="get">
+    <div class="col-12">
+      <input class="form-control" name="q" placeholder="Pesquisar" value="{{ q or '' }}">
+    </div>
+    <div class="col-12">
+      <select class="form-select" name="filtro">
+        <option value="nome" {{ 'selected' if filtro=='nome' }}>Nome</option>
+        <option value="cnpj" {{ 'selected' if filtro=='cnpj' }}>CNPJ</option>
+        <option value="box"  {{ 'selected' if filtro=='box'  }}>Box</option>
+      </select>
+    </div>
+    <div class="col-12">
+      <button class="btn btn-outline-primary">Filtrar</button>
+    </div>
+  </form>
+
+  {% if empresas %}
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead><tr><th>Nome</th><th>CNPJ</th><th>Box</th><th>Email</th><th></th></tr></thead>
+      <tbody>
+      {% for e in empresas %}
+        <tr>
+          <td>{{ e.nome }}</td>
+          <td>{{ e.cnpj }}</td>
+          <td>{{ e.box }}</td>
+          <td>{{ e.email }}</td>
+          <td><a class="btn btn-sm btn-outline-secondary" href="{{ url_for('admin_editar_empresa', email=e.email) }}">Editar</a></td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% else %}
+    <div class="alert alert-info">Nenhuma empresa encontrada.</div>
+  {% endif %}
+{% endblock %}

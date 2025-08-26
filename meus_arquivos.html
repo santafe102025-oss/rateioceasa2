@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+  <h3>Meus Arquivos</h3>
+  <p>Empresa: <b>{{ nome or email }}</b></p>
+  {% if arquivos %}
+    <ul class="list-group">
+      {% for a in arquivos %}
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          {{ a.name }}
+          <a class="btn btn-sm btn-outline-primary" target="_blank" href="{{ a.url }}">Baixar</a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <div class="alert alert-warning">Nenhum arquivo enviado ainda.</div>
+  {% endif %}
+{% endblock %}
